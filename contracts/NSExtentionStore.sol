@@ -26,13 +26,13 @@ contract NSExtentionStore is Ownable {
         extensionData[keccak256(bytes("apt"))] = 10;
     }
 
-    function getExtension(string memory _ext) public view returns (uint8) {
+    function getNameServiceIndex(string memory _ext) public view returns (uint8) {
         uint256 length = bytes(_ext).length;
         require(length > 0 && length < 20, "Extension could not be empty and less than 20 characters");
         return extensionData[keccak256(bytes(_ext))];
     }
 
-    function setExtension(string memory _ext, uint8 _nsIndex, bool overwrite) public onlyOwner returns (bool) {
+    function setNameServiceIndex(string memory _ext, uint8 _nsIndex, bool overwrite) public onlyOwner returns (bool) {
         uint256 length = bytes(_ext).length;
         require(length > 0 && length < 20, "Extension could not be empty and less than 20 characters");
 
